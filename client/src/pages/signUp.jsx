@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { NavLink, useNavigate } from "react-router-dom";
 import api from "../services/api";
 
-const Signup = () => {
+const SignUp = () => {
   const navigate = useNavigate();
 
   // ✅ Individual states
@@ -117,4 +117,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;

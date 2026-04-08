@@ -7,7 +7,7 @@ import Home from "./pages/Home.jsx";
 import HomePage from "./pages/Insights.jsx";
 import Login from "./pages/Login";
 import ReviewPage from "./pages/ReviewPage.jsx";
-import Signup from "./pages/signUp.jsx";
+import SignUp from "./pages/signUp.jsx";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
 
         {/* Protected Routes */}
