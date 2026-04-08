@@ -34,10 +34,6 @@ const Profile = () => {
 
     return (
         <div className='w-[50%] h-[90%] flex flex-col space-y-6 p-2'>
-            {/* <div className="flex items-center gap-2">
-                <img src="../codeInsigth.png" width={60} height={60} className="invert" alt="codeInsight AI" />
-                <p className="text-white text-2xl font-bold">CodeInsights <span className="text-neutral-500">AI</span></p>
-            </div> */}
             <div className="flex flex-col italic items-center space-y-4 py-20">
                 <h1 className="text-4xl text-white">Welcome, {user?.name || "User"}!</h1>
                 <p className="text-white text-xl">Total Reviews: {reviews.length}</p>

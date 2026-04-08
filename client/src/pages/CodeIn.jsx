@@ -5,7 +5,7 @@ import History from "./History";
 import Profile from "./Profile";
 
 const CodeIn = () => {
-    const { user, setUser } = useAppContext();
+    const { setUser } = useAppContext();
     const navigate = useNavigate();
 
     const logout = async () => {

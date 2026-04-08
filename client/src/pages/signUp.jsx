@@ -59,7 +59,6 @@ const Signup = () => {
 
         <form onSubmit={handleSubmit} className=" space-y-4">
 
-          {/* Name */}
           <div>
             <label>Name</label>
             <input
@@ -72,7 +71,6 @@ const Signup = () => {
             />
           </div>
 
-          {/* Email */}
           <div>
             <label>Email</label>
             <input
@@ -85,7 +83,6 @@ const Signup = () => {
             />
           </div>
 
-          {/* Password */}
           <div>
             <label>Password</label>
             <input
@@ -98,7 +95,6 @@ const Signup = () => {
             />
           </div>
 
-          {/* Button */}
           <button
             type="submit"
             disabled={loading}

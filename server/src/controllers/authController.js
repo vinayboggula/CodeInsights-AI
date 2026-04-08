@@ -11,7 +11,6 @@ export const googleLogin = async (req, res) => {
     try {
         const { token } = req.body;
 
-        // ✅ Verify token with Google
         const ticket = await client.verifyIdToken({
             idToken: token,
             audience: process.env.GOOGLE_CLIENT_ID
@@ -21,21 +20,21 @@ export const googleLogin = async (req, res) => {
 
         const { email, name } = payload;
 
-        // ✅ Check user
+
         let user = await findUserByEmail(email);
 
         if (!user) {
-            user = await createUser(name, email, null); // dummy password
+            user = await createUser(name, email, null);
         }
 
-        // ✅ Create JWT
+
         const jwtToken = jwt.sign(
             { id: user.id },
             process.env.JWT_SECRET,
             { expiresIn: "7d" }
         );
 
-        // 🍪 Set cookie
+
         res.cookie("token", jwtToken, {
             httpOnly: true,
             sameSite: "Strict",

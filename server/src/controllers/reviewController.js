@@ -27,8 +27,7 @@ export const createReview = async (req, res) => {
             });
         }
 
-        // 🟢 Save to DB (includes accuracy_score)
-        const user_id = req.user.id; // Assuming auth middleware sets req.user
+        const user_id = req.user.id;
 
         const saved = await saveReview(user_id, code, analysisResult);
 
@@ -39,7 +38,7 @@ export const createReview = async (req, res) => {
         });
 
     } catch (err) {
-        console.error("❌ Create Review Error:", err.message);
+        console.error("Create Review Error:", err.message);
 
         return res.status(500).json({
             success: false,
@@ -60,7 +59,7 @@ export const fetchDashboard = async (req, res) => {
 
         const user_id = req.user.id;
 
-        const data = await getDashboardData(user_id); // ✅ FIXED
+        const data = await getDashboardData(user_id);
 
         return res.status(200).json({
             success: true,
@@ -69,7 +68,7 @@ export const fetchDashboard = async (req, res) => {
         });
 
     } catch (err) {
-        console.error("❌ Dashboard Error:", err.message);
+        console.error(" Dashboard Error:", err.message);
 
         return res.status(500).json({
             success: false,
@@ -99,7 +98,7 @@ export const fetchReview = async (req, res) => {
 
         const user_id = req.user.id;
 
-        const data = await getReviewById(id, user_id); // ✅ FIXED
+        const data = await getReviewById(id, user_id);
 
         if (!data) {
             return res.status(404).json({
@@ -114,7 +113,7 @@ export const fetchReview = async (req, res) => {
         });
 
     } catch (err) {
-        console.error("❌ Fetch Review Error:", err.message);
+        console.error("Fetch Review Error:", err.message);
 
         return res.status(500).json({
             success: false,

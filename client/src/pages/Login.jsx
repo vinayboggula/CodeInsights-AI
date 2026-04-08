@@ -48,15 +48,13 @@ const Login = () => {
         email,
         password
       });
-
-      // 🔥 fetch user after cookie is set
       await getMe();
 
       toast.success("Login successful 🎉");
       navigate("/home");
 
     } catch (error) {
-      console.error("Login Error:", error.response?.data);
+      console.error("Login Error:", error.message || error);
 
       toast.error(
         error.response?.data?.message || "Invalid credentials"
@@ -82,7 +80,6 @@ const Login = () => {
 
         <form onSubmit={handleLogin} className="space-y-4">
 
-          {/* Email */}
           <div>
             <label>Email</label>
             <input
@@ -95,7 +92,6 @@ const Login = () => {
             />
           </div>
 
-          {/* Password */}
           <div>
             <label>Password</label>
             <input
@@ -108,7 +104,6 @@ const Login = () => {
             />
           </div>
 
-          {/* Button */}
           <button
             type="submit"
             disabled={loading}
