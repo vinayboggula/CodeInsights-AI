@@ -6,7 +6,7 @@ import CodeIn from "./pages/CodeIn.jsx";
 import Home from "./pages/Home";
 import HomePage from "./pages/Insights.jsx";
 import Login from "./pages/Login";
-import ReviewPage from "./Pages/ReviewPage.jsx";
+import ReviewPage from "./pages/ReviewPage.jsx";
 import Signup from "./pages/signUp";
 
 function App() {
