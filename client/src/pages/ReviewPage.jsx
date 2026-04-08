@@ -31,7 +31,6 @@ export default function ReviewPage() {
             }
 
             setResult(res.data.data);
-            console.log("Fetched review data:", res.data.data);
 
         } catch (err) {
             console.error(err);
@@ -49,15 +48,10 @@ export default function ReviewPage() {
         setError(null);
 
         try {
-            console.log("Calling API...");
-
             const res = await api.post("/api/review", {
                 language: "python",
                 code,
             });
-
-            console.log("Response:", res);
-
             setResult(res.data.data);
         } catch (err) {
             console.error("Frontend Error:", err.response?.data || err.message);
@@ -68,9 +62,6 @@ export default function ReviewPage() {
     };
 
     useEffect(() => {
-        console.log("Review ID:", reviewId);
-        console.log("User:", user);
-
         if (reviewId && user?.id) {
             reviewData();
         }
