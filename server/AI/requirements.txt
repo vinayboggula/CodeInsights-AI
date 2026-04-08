@@ -1,11 +1,7 @@
 fastapi
 uvicorn
 gunicorn
-radon
-python-dotenv
-fastapi
-uvicorn
-gunicorn
 pydantic
 radon
 python-dotenv
+groq
