@@ -1,4 +1,4 @@
-﻿# 🚀 CodeInsights AI – Detailed Project Documentation
+# 🚀 CodeInsights AI – Detailed Project Documentation
 ## 🧠 1. Project Overview
 
 **CodeInsights AI** is a full-stack web application that analyzes user-submitted code and provides AI-powered optimization suggestions along with detailed code quality metrics and performance insights.

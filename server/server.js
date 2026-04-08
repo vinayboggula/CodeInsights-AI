@@ -20,6 +20,11 @@ app.use(express.json());
 app.use("/auth", authRouter);
 app.use("/api", reviewRouter);
 
-app.listen(5000, () => {
-    console.log("Server running on port 5000");
+app.get("/", (req, res) => {
+    res.send("Welcome to the Book Review API");
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
