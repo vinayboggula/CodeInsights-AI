@@ -17,9 +17,6 @@ const Profile = () => {
             setReviews(res.data.data.reviews);
             setAccuracy(res.data.data.best_score);
             setAverageAccuracy(res.data.data.average_accuracy);
-            console.log("Fetched reviews:", res.data.data.reviews);
-            console.log("Fetched accuracy:", res.data.data.average_accuracy);
-            console.log("Fetched best accuracy:", res.data.data);
         }
         catch (err) {
             console.error("Error fetching reviews:", err.message);

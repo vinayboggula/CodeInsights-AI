@@ -3,11 +3,11 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import ProtectedRoute from "./components/ProtectedRoute";
 import CodeIn from "./pages/CodeIn.jsx";
-import Home from "./pages/Home";
+import Home from "./pages/Home.jsx";
 import HomePage from "./pages/Insights.jsx";
 import Login from "./pages/Login";
 import ReviewPage from "./pages/ReviewPage.jsx";
-import Signup from "./pages/signUp";
+import Signup from "./pages/signUp.jsx";
 
 function App() {
   return (

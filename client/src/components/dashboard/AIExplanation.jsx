@@ -5,10 +5,8 @@ export default function AIExplanation({ explanation, summary }) {
         <div className="p-4 border rounded-xl shadow space-y-3">
             <h2 className="font-bold text-lg">AI Optimization Summary</h2>
 
-            {/* 🧠 AI Explanation */}
             <p className="text-gray-300">{explanation}</p>
 
-            {/* 📊 Structured Points */}
             <div className="grid grid-cols-2 gap-3 mt-4 text-sm">
 
                 <div>

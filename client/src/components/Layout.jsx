@@ -7,7 +7,7 @@ const Layout = () => {
             <div onClick={() => { navigate("/") }} className="flex justify-center items-center gap-1">
                 <img src="/codeInsigth.png" width={30} height={40} alt="" />
                 <span className="text-2xl font-bold text-black cursor-zoom-in">
-                    CodeInsight AI
+                    CodeInsights AI
                 </span>
             </div>
 
