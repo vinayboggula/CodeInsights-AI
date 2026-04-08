@@ -8,7 +8,7 @@ const Home = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowLanding(false);
-        }, 1500); // 3 seconds
+        }, 1500);
 
         return () => clearTimeout(timer);
     }, []);

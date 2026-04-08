@@ -29,7 +29,6 @@ export default function History() {
         try {
             const res = await api.get("/api/dashboard", { params: { userId: user.id } });
             setReviews(res.data.data.reviews);
-            console.log("Fetched reviews:", res.data.data.reviews);
         }
         catch (err) {
             console.error("Error fetching reviews:", err.message);

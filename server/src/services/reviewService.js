@@ -1,7 +1,7 @@
 import pool from "../config/db.js";
 
 
-// 🟢 SAVE REVIEW
+
 export const saveReview = async (user_id, code, result) => {
     const query = `
     INSERT INTO reviews 
@@ -19,7 +19,7 @@ export const saveReview = async (user_id, code, result) => {
     `;
 
     const values = [
-        user_id, // ✅ FIXED
+        user_id, 
         code,
         result.optimized.code,
         JSON.stringify(result.original.metrics),
@@ -34,7 +34,7 @@ export const saveReview = async (user_id, code, result) => {
 
 export const getDashboardData = async (user_id) => {
 
-    // 🔹 All reviews for that user
+
     const reviewsRes = await pool.query(`
         SELECT 
             id,
@@ -48,14 +48,14 @@ export const getDashboardData = async (user_id) => {
         ORDER BY created_at DESC
     `, [user_id]);
 
-    // 🔹 Average accuracy (ONLY this user)
+
     const avgRes = await pool.query(`
         SELECT AVG(accuracy_score) AS avg_accuracy 
         FROM reviews
         WHERE user_id = $1
     `, [user_id]);
 
-    // 🔹 Best accuracy (ONLY this user)
+  
     const bestRes = await pool.query(`
         SELECT MAX(accuracy_score) AS best_score 
         FROM reviews

@@ -12,8 +12,6 @@ export const isAuth = (req, res, next) => {
         }
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-        // 🔥 Attach user info to request
         req.user = decoded;
 
         next();

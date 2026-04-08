@@ -25,7 +25,7 @@ export const getUserSafeData = async (id) => {
         return res.rows[0];
 
     } catch (err) {
-        console.error("❌ GetUser DB Error:", err.message);
+        console.error("GetUser DB Error:", err.message);
         throw err;
     }
 };
