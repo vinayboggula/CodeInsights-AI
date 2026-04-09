@@ -13,8 +13,8 @@ const app = express();
 console.log("API URL:", process.env.FRONTEND_URL);
 
 const allowedOrigins = [
-    "http://localhost:5173",
-    process.env.FRONTEND_URL
+    process.env.FRONTEND_URL,
+    "http://localhost:5173"
 ].filter(Boolean); // removes undefined
 
 app.use(cors({
