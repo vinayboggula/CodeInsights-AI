@@ -15,6 +15,7 @@ const Login = () => {
   const [googleLoading, setGoogleLoading] = useState(false);
 
   const handleSuccess = async (credentialResponse) => {
+    console.log("GOOGLE RESPONSE:", credentialResponse); // 🔥
     try {
       setGoogleLoading(true);
       const token = credentialResponse.credential;
@@ -124,7 +125,7 @@ const Login = () => {
             <p>Signing in with Google...</p>
           ) : (
             <GoogleLogin
-              onSuccess={() => handleSuccess}
+              onSuccess={handleSuccess}
               onError={() => toast.error("Google Login Failed")}
             />
           )}
