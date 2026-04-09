@@ -11,10 +11,17 @@ dotenv.config();
 const app = express();
 
 console.log("API URL:", process.env.FRONTEND_URL);
+
+const allowedOrigins = [
+    "http://localhost:5173",
+    process.env.FRONTEND_URL
+].filter(Boolean); // removes undefined
+
 app.use(cors({
-    origin: [process.env.FRONTEND_URL, "http://localhost:5173"],
+    origin: allowedOrigins,
     credentials: true
 }));
+
 app.use(cookieParser());
 app.use(express.json());
 

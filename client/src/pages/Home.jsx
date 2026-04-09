@@ -4,6 +4,7 @@ import Landing from "./Landing";
 
 const Home = () => {
     const [showLanding, setShowLanding] = useState(true);
+    console.log(import.meta.env.VITE_API_URL)
 
     useEffect(() => {
         const timer = setTimeout(() => {
