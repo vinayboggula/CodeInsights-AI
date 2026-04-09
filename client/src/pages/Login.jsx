@@ -124,7 +124,7 @@ const Login = () => {
             <p>Signing in with Google...</p>
           ) : (
             <GoogleLogin
-              onSuccess={handleSuccess}
+              onSuccess={() => handleSuccess}
               onError={() => toast.error("Google Login Failed")}
             />
           )}

@@ -37,7 +37,7 @@ export const googleLogin = async (req, res) => {
 
         res.cookie("token", jwtToken, {
             httpOnly: true,
-            sameSite: "Strict",
+            sameSite: "None",
             secure: process.env.NODE_ENV === "production",
         });
 
@@ -98,7 +98,7 @@ export const signUp = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            sameSite: "Lax",
+            sameSite: "None",
             secure: process.env.NODE_ENV === "production",
             maxAge: 7 * 24 * 60 * 60 * 1000
         });
@@ -124,7 +124,7 @@ export const login = async (req, res) => {
         if (!user) {
             return res.status(400).json({ success: false, message: " Invalid email" })
         }
-
+        console.log("User found:", password, user) // Debugging line
         const isMatch = await bcrypt.compare(password, user.password)
 
         if (!isMatch) {
@@ -139,7 +139,7 @@ export const login = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            sameSite: "Lax",
+            sameSite: "None",
             secure: process.env.NODE_ENV === "production"
         });
 
@@ -153,7 +153,7 @@ export const login = async (req, res) => {
 export const logout = (req, res) => {
     res.clearCookie("token", {
         httpOnly: true,
-        sameSite: "Lax",
+        sameSite: "None",
         secure: process.env.NODE_ENV === "production"
     });
 
