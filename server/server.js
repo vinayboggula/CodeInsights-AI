@@ -21,6 +21,10 @@ app.use(cors({
     origin: allowedOrigins,
     credentials: true
 }));
+app.use((req, res, next) => {
+    res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+    next();
+});
 
 app.use(cookieParser());
 app.use(express.json());

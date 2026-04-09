@@ -111,24 +111,30 @@ export const signUp = async (req, res) => {
 
 //login
 export const login = async (req, res) => {
-
     try {
-        const { email, password } = req.body
+        const { email, password } = req.body;
 
         if (!email || !password) {
-            return res.status(400).json({ success: false, message: "fill in all fields" })
+            return res.status(400).json({ message: "Fill all fields" });
         }
 
-        const user = await findUserByEmail(email)
+        const user = await findUserByEmail(email);
 
         if (!user) {
-            return res.status(400).json({ success: false, message: " Invalid email" })
+            return res.status(400).json({ message: "Invalid email" });
         }
-        console.log("User found:", password, user) // Debugging line
-        const isMatch = await bcrypt.compare(password, user.password)
+
+        // 🔥 KEY FIX: HANDLE GOOGLE USERS
+        if (!user.password) {
+            return res.status(400).json({
+                message: "This account uses Google login. Please sign in with Google."
+            });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) {
-            return res.status(400).json({ success: false, message: "Invalid credentials" })
+            return res.status(400).json({ message: "Invalid credentials" });
         }
 
         const token = jwt.sign(
@@ -140,15 +146,19 @@ export const login = async (req, res) => {
         res.cookie("token", token, {
             httpOnly: true,
             sameSite: "None",
-            secure: process.env.NODE_ENV === "production"
+            secure: true
         });
 
+        return res.json({
+            success: true,
+            message: "Login successful"
+        });
 
-        return res.status(200).json({ success: true, message: "Login successful", user })
     } catch (err) {
-        return res.status(500).json({ success: false, error: err.message });
+        console.error(err);
+        return res.status(500).json({ error: err.message });
     }
-}
+};
 
 export const logout = (req, res) => {
     res.clearCookie("token", {
