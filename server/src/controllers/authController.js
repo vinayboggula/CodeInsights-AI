@@ -37,7 +37,7 @@ export const googleLogin = async (req, res) => {
 
         res.cookie("token", jwtToken, {
             httpOnly: true,
-            sameSite: "None",
+            sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
             secure: process.env.NODE_ENV === "production",
         });
 
@@ -98,7 +98,7 @@ export const signUp = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            sameSite: "None",
+            sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
             secure: process.env.NODE_ENV === "production",
             maxAge: 7 * 24 * 60 * 60 * 1000
         });
@@ -124,7 +124,6 @@ export const login = async (req, res) => {
             return res.status(400).json({ message: "Invalid email" });
         }
 
-        // 🔥 KEY FIX: HANDLE GOOGLE USERS
         if (!user.password) {
             return res.status(400).json({
                 message: "This account uses Google login. Please sign in with Google."
@@ -145,8 +144,8 @@ export const login = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            sameSite: "None",
-            secure: true
+            sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+            secure: process.env.NODE_ENV === "production"
         });
 
         return res.json({
