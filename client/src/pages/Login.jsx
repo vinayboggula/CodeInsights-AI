@@ -19,7 +19,9 @@ const Login = () => {
       setGoogleLoading(true);
       const token = credentialResponse.credential;
 
-      await api.post("/auth/google", { token });
+      const { data } = await api.post("/auth/google", { token });
+
+      localStorage.setItem("token", data.token);
 
       await getMe();
       toast.success("Google login successful 🎉");
@@ -44,10 +46,12 @@ const Login = () => {
     try {
       setLoading(true);
 
-      await api.post("/auth/login", {
+      const { data } = await api.post("/auth/login", {
         email,
         password
       });
+
+      localStorage.setItem("token", data.token);
       await getMe();
 
       toast.success("Login successful 🎉");
