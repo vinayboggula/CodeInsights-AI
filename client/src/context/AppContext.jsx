@@ -5,18 +5,17 @@ import api from "../services/api";
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-    const navigate = useNavigate();
 
+    const navigate = useNavigate()
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // 🔑 Get logged-in user
+
     const getMe = async () => {
         try {
             const { data } = await api.get("/auth/me");
             setUser(data.user);
         } catch (err) {
-            // ✅ DON'T treat as error
             setUser(null);
         } finally {
             setLoading(false);

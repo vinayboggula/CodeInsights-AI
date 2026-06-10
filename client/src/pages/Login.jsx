@@ -15,7 +15,6 @@ const Login = () => {
   const [googleLoading, setGoogleLoading] = useState(false);
 
   const handleSuccess = async (credentialResponse) => {
-    console.log("GOOGLE RESPONSE:", credentialResponse); // 🔥
     try {
       setGoogleLoading(true);
       const token = credentialResponse.credential;
