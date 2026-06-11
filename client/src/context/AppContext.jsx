@@ -40,8 +40,6 @@ export const AppProvider = ({ children }) => {
 
     useEffect(() => {
 
-        getMe();
-
     }, []);
 
 

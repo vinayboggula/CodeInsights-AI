@@ -15,7 +15,7 @@ console.log("API URL:", process.env.FRONTEND_URL);
 const allowedOrigins = [
     process.env.FRONTEND_URL,
     "http://localhost:5173"
-].filter(Boolean); // removes undefined
+].filter(Boolean); 
 
 app.use(cors({
     origin: allowedOrigins,
